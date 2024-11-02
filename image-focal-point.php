@@ -17,9 +17,9 @@ function add_focal_point_field($fields, $post) {
         'label' => 'Focal Point',
         'input' => 'html',
         'html' => "
-            <div id='focal-point-picker' style='position: relative; display: inline-block;'>
-                <img src='" . esc_url(wp_get_attachment_url($post->ID)) . "' id='focal-point-image' style='max-width:100%;'/>
-                <div id='focal-point-marker' style='position: absolute; width: 10px; height: 10px; background: red; border-radius: 50%; transform: translate(-50%, -50%);'></div>
+            <div class='focal-point-picker' style='position: relative; display: inline-block;'>
+                <img src='" . esc_url(wp_get_attachment_url($post->ID)) . "' class='focal-point-image' style='max-width:100%;'/>
+                <div class='focal-point-marker' style='position: absolute; width: 10px; height: 10px; background: red; border-radius: 50%; transform: translate(-50%, -50%);'></div>
             </div>
         ",
         'helps' => 'Click on the image to set the focal point.'
@@ -65,6 +65,7 @@ function focal_point_media_fields_ajax() {
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'enqueue_focal_point_scripts');
 add_action('admin_enqueue_scripts', 'enqueue_focal_point_scripts');
+
 function enqueue_focal_point_scripts() {
     wp_enqueue_script('focal-point-js', plugin_dir_url(__FILE__) . 'focal-point.js', array('jquery'), '1.0', true);
     wp_enqueue_style('focal-point-css', plugin_dir_url(__FILE__) . 'focal-point.css', array(), '1.0');

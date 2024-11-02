@@ -1,4 +1,4 @@
-#focal-point-marker {
+.focal-point-marker {
     border: 2px solid red;
     position: absolute;
     width: 10px;
